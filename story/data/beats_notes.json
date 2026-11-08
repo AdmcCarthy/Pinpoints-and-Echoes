@@ -1,0 +1,121 @@
+{
+ "log": {
+  "well": "15/9-F-11 T2",
+  "hugin_tvdss": [
+   3181.5,
+   3282.84
+  ],
+  "hugin_thickness_m": 101.3,
+  "las": "WLC_PETRO_COMPUTED_INPUT_1.LAS",
+  "sample_m": 0.09999999999990905,
+  "rows_kept": 4121,
+  "md_range": [
+   2469.8,
+   4530.0
+  ],
+  "coverage": {
+   "GR": 0.9989807309615104,
+   "RHOB": 0.947968742416153,
+   "NPHI": 0.947968742416153,
+   "RT": 0.9943697519778673,
+   "DT": 0.944765325438043
+  }
+ },
+ "tie": {
+  "wavelet_hz": 22.1,
+  "corr_zero_lag": -0.029,
+  "best_shift_ms": 12,
+  "corr_best": 0.317,
+  "sign": 1,
+  "impedance_coverage": 0.944231422608358,
+  "window_ms": [
+   2300,
+   3100
+  ],
+  "polarity": "the data's polarity is not stated; the synthetic is drawn with whichever sign matches better, and that sign is reported"
+ },
+ "horizons": {
+  "Ty Fm top": 320,
+  "Shetland Gp top": 356,
+  "Base Cretaceous": 357,
+  "Hugin Fm top": 226,
+  "Hugin Fm base": 229
+ },
+ "wedge": {
+  "v_m_s": 4012,
+  "tuning_m": 36.0,
+  "quarter_wavelength_m": 45.4,
+  "f_hz": 22.1
+ },
+ "fan": {
+  "twt_ms": 2650.0,
+  "n_tables": 6,
+  "depth_min": 2991.5,
+  "depth_max": 3059.8,
+  "wells": [
+   "15/9-19 A",
+   "15/9-19 B&BT2",
+   "15/9-F-11 T2",
+   "15/9-F-15 A"
+  ]
+ },
+ "closure": {
+  "high": "H3",
+  "crest_m": 2802.2,
+  "spill_m": 2989.5,
+  "spill_kind": "edge",
+  "curve_max_depth": 3172.5,
+  "P90": 3105,
+  "P50": 3135,
+  "P10": 3260,
+  "area_P90": 7.495193548387099,
+  "area_P50": 19.748920634920626,
+  "area_base_3120": 8.358380952380946
+ },
+ "volumes": {
+  "n": 20000,
+  "seed": 7,
+  "P90": 7.860880117931771,
+  "P50": 17.549241745868525,
+  "P10": 33.94448716572807,
+  "area_share_capped": 0.13135,
+  "params": {
+   "pay_m": [
+    15,
+    30,
+    50
+   ],
+   "phi": [
+    0.16,
+    0.2,
+    0.24
+   ],
+   "sw": [
+    0.25,
+    0.35,
+    0.5
+   ],
+   "bo": [
+    1.15,
+    1.25,
+    1.35
+   ],
+   "rf": [
+    0.3,
+    0.4,
+    0.5
+   ]
+  }
+ },
+ "revisions": {
+  "n_fields": 59,
+  "median_ratio": 1.0232558139534884,
+  "p10": 0.30630533821373007,
+  "p90": 1.909396109096048,
+  "share_up": 0.4745762711864407,
+  "share_down": 0.4745762711864407,
+  "volve_first": 13680000.0,
+  "volve_max": 15250000.0,
+  "volve_latest": 11380000.0
+ }
+}

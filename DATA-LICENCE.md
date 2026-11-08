@@ -1,17 +1,23 @@
 # Data licence
 
-The MIT licence in `LICENSE` covers **code only**. The extracts in `story/data/` are derived from the sources below and stay under their terms. The licence for the narrative text and figures is still to be decided.
+The licence in `LICENSE` (MIT License with Acknowledgement) covers the code, the story text and the figures made here. The extracts in `story/data/` are derived from the sources below and keep their terms.
 
 ## Sodir (Norwegian Offshore Directorate)
 
-`story/data/wells.csv` and `geometry.csv` derive from the Sodir FactPages wellbore table (wellhead positions, well type, entry year). Sodir states that its open data is published under the Norwegian Licence for Open Government Data (NLOD) ([Sodir open data](https://sodir.no/en/about-us/open-data)). Sodir's own page could not be fetched by script on 2026-11-08 (HTTP 403), so the **NLOD version it applies is not confirmed**. NLOD 2.0 text: <https://data.norge.no/nlod/en/2.0>. Under NLOD the data may be used for any purpose, including after changes or combination, if the licensor is credited, the licence is referenced and linked, and changes are indicated.
+`story/data/wells.csv`, `geometry.csv`, `volve_reserves.csv` and `revisions.csv` derive from the Sodir FactPages (wellbore, field and reserves tables). Terms: Norwegian Licence for Open Government Data (NLOD 2.0), as recorded in the author's dataset register. Credit "Source: Sodir". Reuse, change and redistribution are permitted with that credit, a reference to the licence and a note that the data has been changed.
 
-> Contains data under the Norwegian licence for Open Government data (NLOD) distributed by Sodir (the Norwegian Offshore Directorate). The data has been filtered, converted to wellhead positions and summarised by the author.
+> Source: Sodir. Contains data under the Norwegian licence for Open Government data (NLOD 2.0) distributed by Sodir. Filtered, converted to wellhead positions and summarised by the author.
 
 ## Volve
 
-`story/data/chain.csv` and the hole diameter in `geometry.csv` derive from the Volve data village. The working terms (as in `volve-surfaces`): credit Equinor and the former Volve licence partners, link the Volve Terms and Conditions, do not sell the data, do not present it misleadingly, no endorsement, provided as is. `seismic_art` records the licence as CC BY-NC-SA; this is **not yet reconciled** with Equinor's current terms.
+`chain.csv`, `spread.csv`, `transect.csv`, `picks.csv`, `log.csv`, `section.json`, `horizons.csv`, `wedge.json`, `tie.csv`, `timedepth.csv`, `closure.csv`, `contact.csv`, `volumes.csv` and the Volve hole diameter in `geometry.csv` derive from the Volve data village. Terms: "Terms and conditions for license to data, Volve", published by Equinor ASA and the former Volve licence partners. The terms are based on CC BY 4.0 with two changes: the material may not be sold, and the licence covers all the data whether or not copyright applies. Commercial and non-commercial use, adapted material and sharing are permitted with credit, a link to the terms and a copyright notice; adapted material may not be shared under terms that stop recipients complying; the data must not be presented in a misleading or distorted way; no endorsement is implied. An earlier note in this repository and in related ones called the terms CC BY-NC-SA; that was wrong and is corrected here.
 
 > Contains data from the Volve data village, © Equinor ASA and the former Volve licence partners (ExxonMobil E&P Norway, Bayerngas Norge). Used under the Volve Terms and Conditions. Generalised for display.
+
+The raw Volve data (seismic, logs, interpretations, reports) is not in this repository and is never committed; the scripts read it from a local path. Everything here is a small, derived extract.
+
+## Cited figures
+
+GEBCO (2025), Hoek and Palmieri (1998) and ECMWF (2024) are cited for single figures in the text, with the source and date in the story's basis of analysis.
 
 This project is not connected with, sponsored or endorsed by Sodir, Equinor or the former Volve licence partners.

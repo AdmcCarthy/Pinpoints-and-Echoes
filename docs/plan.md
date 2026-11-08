@@ -10,6 +10,10 @@ Keep the existing voice: confident about the mechanism, explicit about the uncer
 
 The title moved from "Pinpricks" to **Pinpoints and Echoes** (README.md, CLAUDE.md and `story/story.md` updated 2026-11-08).
 
+## Status 2026-11-09: full narrative built and published
+
+All beats of the outline are built and live at <https://admccarthy.github.io/Pinpoints-and-Echoes/>: hook, ladder, observation (F-11 T2 log), echo (ST10010 inline and a synthetic wedge), tie, error stack, interpretation spread, depth fan, volumes (closure area, 2005 contact distribution, labelled simulation), test (Sodir estimates of Volve and 59 fields' revisions) and the three-word close. Comparatives used: seafloor mapping (GEBCO 2025), tunnelling (Hoek and Palmieri 1998), weather ensembles (ECMWF). Not used: the unverified look-back figures (Sodir 2.5x, Dutch 58%, Westwood 78%). Open: readability gate not run (needs a Playwright browser download); pre-drill prognosis per well not public.
+
 ## Revision 2026-11-08: field independent, Volve as the receipt
 
 The story is about any field, not Volve. Volve is the backing: an open, real case that shows each claim holds with real numbers. Each step in `story/story.md` carries a **Receipt** line saying which Volve evidence (if any) backs it. Two beats need no receipt: the basin-wide hook (Sodir) and the volumes beat (a labelled simulation). Comparatives are researched in [`comparatives.md`](comparatives.md); the narrative was reworked first, as asked. A new beat, *error-stack*, covers "every measurement is uncertain, and they stack", and the ladder beat was split from the hook.
@@ -71,7 +75,7 @@ Builds on the existing outline, with the data mapped.
 
 ## Licences and acknowledgements
 
-- **Volve.** `volve-surfaces/DATA-LICENCE.md` sets the working terms: credit Equinor and the former licence partners, link the Terms and Conditions, no sale, nothing misleading, no endorsement, as-is. `seismic_art/docs/concepts.md` says CC BY-NC-SA. These two statements must be reconciled against Equinor's current terms before publishing. If it is NC-SA, derived data in this repo carries that licence too.
+- **Volve.** `volve-surfaces/DATA-LICENCE.md` sets the working terms: credit Equinor and the former licence partners, link the Terms and Conditions, no sale, nothing misleading, no endorsement, as-is. `seismic_art/docs/concepts.md` said CC BY-NC-SA, which was wrong: the terms are CC BY 4.0 based with a no-sale condition (Idiom `DATASETS.md`, read 2026-11-09). Recorded in `DATA-LICENCE.md`.
 - Use the attribution line from `volve-surfaces` on the story and in the appendix, and add a plain-language acknowledgement of Volve as a rare open data release.
 - **Sodir.** Check the FactPages licence and record the terms in `data/README.md`.
 - Raw data stays out of git (`data/raw/`, ignored); only story-sized extracts are committed.
