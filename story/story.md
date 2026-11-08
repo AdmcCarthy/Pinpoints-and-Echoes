@@ -16,8 +16,8 @@ kpis:
   - { metric: nn_km, label: "km to the nearest other exploration well (typical)", filter: round:1 }
 sources:
   sodir:
-    name: Sodir FactPages, wellbore table via ep_geoscience_analytics
-    note: Norwegian Offshore Directorate. Licence terms to be confirmed before publication.
+    name: Sodir FactPages, wellbore table (Norwegian Offshore Directorate)
+    note: Contains data under the Norwegian licence for Open Government data (NLOD) distributed by Sodir. Filtered, converted to wellhead positions and summarised by the author.
   volve:
     name: Volve data village, Equinor ASA and the former Volve licence partners
     note: Contains data from the Volve data village, © Equinor ASA and the former Volve licence partners (ExxonMobil E&P Norway, Bayerngas Norge). Used under the Volve Terms and Conditions. Generalised for display.

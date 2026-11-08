@@ -1,22 +1,22 @@
 # Data
 
-Nothing here yet. Raw downloads go in `data/raw/` (git-ignored). Processed, story-sized outputs go
-in `data/` and are committed. Heavy ingestion belongs in the separate Parquet pipeline; this repo
-only keeps the small extracts the story needs.
+Raw downloads go in `data/raw/` (git-ignored). Story-sized extracts are committed in `story/data/`, written by `scripts/make_extracts.py` from the `ep_geoscience_analytics` mid-layer. Heavy ingestion stays there.
 
-## Candidates (licences to be checked before use)
+## In use
 
-| Source | What it could provide | Story beats |
+| File | From | Used for |
 |---|---|---|
-| Norwegian Offshore Directorate (Sodir) FactPages / FactMaps | Wellbore positions, depths, results; discoveries; fields | hook, test |
-| Equinor Volve data release | Seismic, well logs, interpretations and production for one field | observation, echo, tie, depth |
-| NLOG (TNO, Netherlands) | Wells and seismic, Dutch sector | alternative for most beats |
-| UK NSTA National Data Repository | Wells and seismic, UK sector | alternative for most beats |
-| F3 Netherlands seismic block (dGB Earth Sciences) | Public 3D seismic used for teaching interpretation | echo, interpretation |
+| `story/data/wells.csv` | Sodir wellbore table: North Sea petroleum wellbores, wellhead positions | hook, ladder |
+| `story/data/geometry.csv` | the same, plus the Volve reservoir hole diameter | hook, ladder |
+| `story/data/chain.csv` | Volve survey, check-shot and horizon-to-pick checks | error stack |
+
+Licences and attribution lines: [`../DATA-LICENCE.md`](../DATA-LICENCE.md). Open items there: the Sodir NLOD version and the Volve licence wording.
+
+## Candidates for later beats
+
+Volve logs, SEG-Y and interpretations (composite log, echo, tie, interpretation spread, depth); Sodir discoveries and reserves (test beat); NLOG and NSTA as alternates; F3 for teaching seismic.
 
 ## To decide
 
-- One basin and one field, so the story moves from the shelf down to a single well.
-- Whether the "several interpreters" beat uses published interpretations or ones we make ourselves
-  (if our own, they are labelled Interpreted and the method is stated).
-- Pre-drill vs post-drill comparisons need prognosed vs actual values. Check what's public.
+- Whether the interpretation-spread beat uses published alternatives only (Volve horizon folders and processing vintages) or ones we make.
+- What public prognosis exists for the pre-drill and post-drill beat (see `docs/comparatives.md`).
