@@ -1,12 +1,22 @@
-# Pinpricks and Echoes
+# Pinpoints and Echoes
 
-> **Status: placeholder.** Concept and story outline only. No data or build yet. To be developed
-> with an open dataset and built with [SubScout](https://github.com/AdmcCarthy/SubScout).
+> **Status: draft, first slice built.** The hook, scale ladder and error-stack beats build from real
+> Sodir and Volve extracts; the remaining beats are outlined in [`docs/outline-v2.md`](docs/outline-v2.md).
+> Plan: [`docs/plan.md`](docs/plan.md). Comparatives research: [`docs/comparatives.md`](docs/comparatives.md).
+
+## Build
+
+```powershell
+# extracts (reads ../ep_geoscience_analytics, writes story/data/)
+..\ep_geoscience_analytics\.venv\Scripts\python.exe -I scripts\make_extracts.py --ep ..\ep_geoscience_analytics
+# page (SubScout is a sibling checkout)
+cd ..\SubScout; uv run subscout build ..\Pinpoints-and-Echoes\story --out ..\Pinpoints-and-Echoes\_site
+```
 
 ## The thesis
 
 Interpreting the subsurface is honest persuasion. Geoscientists build confident cases from sparse,
-indirect evidence (wells are pinpricks, seismic is an echo) while keeping observation separate
+indirect evidence (wells are pinpoints, seismic is an echo) while keeping observation separate
 from interpretation.
 
 The voice is the interpreter's voice: **confident about the mechanism, explicit about the
@@ -18,7 +28,7 @@ A data narrative about how uncertain geoscience interpretation is, and why it ca
 The reader should leave able to tell an observation from an interpretation in any subsurface claim,
 and know which questions to ask about the uncertainty behind it.
 
-- **Working title:** Pinpricks and Echoes
+- **Working title:** Pinpoints and Echoes
 - **Standfirst (draft):** Every map of the subsurface is mostly inference. A handful of
   boreholes and the echoes of sound waves become a confident picture of rocks no one has seen. Here
   is how that picture is built, how wrong it can be, and why it is still worth trusting.

@@ -1,0 +1,8 @@
+key,value,unit,basis
+reservoir_hole_mm,215.9,mm,"Volve open-hole runs reaching 3,000 m MD or deeper, 82 runs"
+n_wellbores,7033.0,count,wells.csv
+n_exploration_sites,1168.0,count,"exploration wellbores (initial), 100 m cells"
+hull_area_km2,133213.045581055,km2,convex hull of wellhead positions
+nn_median_km,2.348397680979983,km,"exploration sites, nearest neighbour"
+nn_p10_km,0.6708203932500386,km,"exploration sites, nearest neighbour"
+nn_p90_km,6.842862360004405,km,"exploration sites, nearest neighbour"

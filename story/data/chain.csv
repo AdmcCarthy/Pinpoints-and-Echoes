@@ -1,0 +1,6 @@
+link,axis,typical,worst,unit,basis,confidence
+Well position (horizontal),horizontal,7.66,22.56,m,"Volve survey covariance at end of survey, 26 surveys; unit and confidence level not stated in the export",Observed
+Well depth (vertical position),vertical,3.44,5.18,m,"same surveys, vertical",Observed
+Depth reference (rotary table to sea level),vertical,0.0,54.9,m,a mixed-up reference shifts every depth by the rotary-table elevation,Observed
+Time-depth tie (check-shot residual),vertical,2.23,121.19,m,"pick residuals against check shots, ms converted at 2345 m/s",Derived
+Horizon against well picks (reservoir),vertical,0.55,103.92,m,"Volve Hugin top and base, depth horizons already adjusted to wells",Derived
