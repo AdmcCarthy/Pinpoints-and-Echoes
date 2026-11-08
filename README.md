@@ -9,6 +9,8 @@
 ```powershell
 # extracts (reads ../ep_geoscience_analytics, writes story/data/)
 ..\ep_geoscience_analytics\.venv\Scripts\python.exe -I scripts\make_extracts.py --ep ..\ep_geoscience_analytics
+# interpretation-spread extracts (also reads the Volve interpretation zip, not committed)
+..\ep_geoscience_analytics\.venv\Scripts\python.exe -I scripts\make_spread.py --ep ..\ep_geoscience_analytics --zip C:ppl\Volve\Volve_Geophysical_Interpretations.zip
 # page (SubScout is a sibling checkout)
 cd ..\SubScout; uv run subscout build ..\Pinpoints-and-Echoes\story --out ..\Pinpoints-and-Echoes\_site
 ```
