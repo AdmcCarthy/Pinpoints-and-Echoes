@@ -27,6 +27,36 @@ def datasets(d):
     return {"stack": v.reset_index(drop=True)}
 
 
+MS_TO_M = 2345.0 / 2 / 1000  # metres of depth per ms of two-way time (Volve average velocity, rounded)
+
+
+def spread_metrics(d):
+    t, sp, pk = d["transect"], d["spread"], d["picks"]
+    gap = (t.twt_reprocessed_ms - t.twt_base_ms).abs()
+    near = sp[sp.band == "0-250 m"].abs_median_ms
+    far = sp[sp.band == "over 2 km"].abs_median_ms
+    src = "volve"
+    idx = [(t.dist_m - p).abs().idxmin() for p in pk.dist_m]
+    miss_a = (t.twt_base_ms.loc[idx].to_numpy() - pk.pick_twt_ms.to_numpy())
+    miss_b = (t.twt_reprocessed_ms.loc[idx].to_numpy() - pk.pick_twt_ms.to_numpy())
+    return {
+        "miss_base": metric(float(abs(miss_a).mean()), "Mean absolute miss of the base version against the well picks near the line, ms TWT; "
+                            "pick times are depths converted through the check-shot table", src, "derived", "ms"),
+        "miss_repro": metric(float(abs(miss_b).mean()), "Mean absolute miss of the reprocessed version against the same picks, ms TWT", src, "derived", "ms"),
+        "n_versions": metric(int(sp.surface.nunique()), "Surfaces with two published versions compared", src, "derived"),
+        "line_km": metric(float(t.dist_m.max() / 1000), "Length of the line between two Ty Fm top picks, km", src, "derived", "km"),
+        "n_picks_line": metric(int(len(pk)), "Well picks within 150 m of the line", src, "observed"),
+        "gap_max_ms": metric(float(gap.max()), "Largest difference between the two versions along the line, ms TWT", src, "derived", "ms"),
+        "gap_max_m": metric(float(gap.max() * MS_TO_M), f"The same in depth at {MS_TO_M * 2000:.0f} m/s, m", src, "interpreted", "m"),
+        "gap_med_ms": metric(float(gap.median()), "Median difference along the line, ms TWT", src, "derived", "ms"),
+        "near_lo": metric(float(near.min()), "Smallest median difference within 250 m of a well pick, over the surfaces, ms", src, "derived", "ms"),
+        "near_hi": metric(float(near.max()), "Largest median difference within 250 m of a well pick, over the surfaces, ms", src, "derived", "ms"),
+        "far_lo": metric(float(far.min()), "Smallest median difference beyond 2 km of a well pick (surfaces with enough nodes), ms", src, "derived", "ms"),
+        "far_hi": metric(float(far.max()), "Largest median difference beyond 2 km of a well pick (surfaces with enough nodes), ms", src, "derived", "ms"),
+        "n_far": metric(int(len(far)), "Surfaces with enough nodes beyond 2 km to compare", src, "derived"),
+    }
+
+
 def metrics(d):
     n = _g(d, "n_wellbores")
     area = _g(d, "hull_area_km2")
@@ -37,6 +67,7 @@ def metrics(d):
     s = d["stack"]
     row = lambda k: c[c.index.str.startswith(k)].iloc[0]
     return {
+        **spread_metrics(d),
         "n_wellbores": metric(
             int(n),
             "Petroleum wellbores (development and exploration, sidetracks included) with a "

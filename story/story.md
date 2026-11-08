@@ -25,6 +25,9 @@ data:
   wells: data/wells.csv
   geometry: data/geometry.csv
   chain: data/chain.csv
+  spread: data/spread.csv
+  transect: data/transect.csv
+  picks: data/picks.csv
 ---
 
 This is a draft. The argument is about any field; the Volve data, which is open, is the worked case that
@@ -194,8 +197,69 @@ title: Together, a range of metres to hundreds of metres
 ```
 :::
 
+::: step {beat=interpretation}
+### Same data, different answers
+
+Take one surface, the top of the Ty Formation, along a {{ line_km | round:1 }} km line between wells. At the
+{{ n_picks_line | int }} well picks near the line (circles) the depth was observed; its time comes from a check-shot
+table. Everywhere between them the surface is drawn by an interpreter, by software, or by both.
+
+```chart
+id: transect
+type: custom
+module: figures/transect.js
+data: [transect, picks]
+state: { stage: 1 }
+title: Between the wells, the surface is drawn, not measured
+subtitle: Ty Fm top along a line between two well picks, Volve, two-way time in ms (time increases downward)
+source: volve
+confidence: interpreted
+unit: ms TWT, km
+notes: Pick depths are Observed and their times Derived through the check-shot table; both surfaces are Interpreted. The two versions are the base survey (ST0202R08, PSDM) and the reprocessed survey (ST10010) as published in the Volve release; they differ in processing and in picking, so they are two published answers, not blind picks by different interpreters. Values are read at the nearest node, 50 m apart. Picks within 150 m of the line are shown at their along-line position.
+```
+:::
+
+::: step {beat=interpretation}
+### Two defensible answers
+
+The base survey gives one surface and the reprocessed survey another. They agree on the broad shape and differ in the detail. Along this line they
+differ by a median {{ gap_med_ms | round:0 }} ms and by up to {{ gap_max_ms | round:0 }} ms, which is up to about
+{{ gap_max_m | round:0 }} m of depth at the Volve average velocity. Neither is wrong; each is a defensible answer. Neither passes through the picks: on average they miss them by
+{{ miss_base | round:0 }} and {{ miss_repro | round:0 }} ms.
+
+```chart
+use: transect
+stage: 3
+title: Two defensible surfaces, and the gap between them
+```
+:::
+
+::: step {beat=interpretation}
+### Wells do not remove the disagreement
+
+The textbook picture is that interpretations agree near the wells and part away from them. The Volve versions show
+a weaker version of it. Within a quarter of a kilometre of a well pick the median difference is already
+{{ near_lo | round:0 }} to {{ near_hi | round:0 }} ms, depending on the surface. Beyond two kilometres, where
+{{ n_far | int }} of the {{ n_versions | int }} surfaces have enough nodes to compare, it is {{ far_lo | round:0 }}
+to {{ far_hi | round:0 }} ms. The wells help; they do not settle it.
+
+```chart
+id: spread
+type: custom
+module: figures/spread.js
+data: spread
+title: The versions differ at the wells, and more away from them
+subtitle: Difference between the base and reprocessed versions of four Volve horizons, by distance to the nearest well pick
+source: volve
+confidence: derived
+unit: ms TWT
+notes: Solid line is the median absolute difference at nodes 12.5 m apart, dashed line the 90th percentile. Bands with fewer than a thousand nodes are not drawn. Distance is to the nearest well pick of any interpreted surface. The Ty Fm top is a special case near wells because the official version was updated with the later F-11 wells. A systematic offset between versions is included, not removed. Two published versions are not two independent interpreters.
+exception: { rule: one hue per entity, reason: four surfaces take the categorical colours in a fixed order }
+```
+:::
+
 ## What comes next
 
 Still to build: the log a well actually records, the seismic echo and its resolution limit, the well tie,
-several valid interpretations of one surface, the depth-conversion fan, the P90/P50/P10 volumes and the
+the depth-conversion fan, the P90/P50/P10 volumes and the
 test of drilling against prediction. The outline is in `docs/outline-v2.md`.

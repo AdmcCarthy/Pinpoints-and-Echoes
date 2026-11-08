@@ -1,6 +1,6 @@
 # Pinpoints and Echoes: working rules
 
-A SubScout story about how uncertain geoscience interpretation is. **Status: draft, first slice built** (hook, ladder, error-stack). Field-independent story; Volve is the
+A SubScout story about how uncertain geoscience interpretation is. **Status: draft, first slice built** (hook, ladder, error-stack, interpretation spread). Field-independent story; Volve is the
 worked case, not the subject. Owner: Adam McCarthy, petroleum geoscience domain expert. Plan in
 `docs/plan.md`; `story/story.py` computes every number from the extracts in `story/data/`.
 

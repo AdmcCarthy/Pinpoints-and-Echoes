@@ -1,6 +1,6 @@
 # Pinpoints and Echoes
 
-> **Status: draft, first slice built.** The hook, scale ladder and error-stack beats build from real
+> **Status: draft, first slice built.** The hook, scale ladder, error-stack and interpretation-spread beats build from real
 > Sodir and Volve extracts; the remaining beats are outlined in [`docs/outline-v2.md`](docs/outline-v2.md).
 > Plan: [`docs/plan.md`](docs/plan.md). Comparatives research: [`docs/comparatives.md`](docs/comparatives.md).
 

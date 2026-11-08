@@ -1,0 +1,20 @@
+surface,band,nodes,abs_median_ms,abs_p90_ms,signed_median_ms
+Ty Fm top,0-250 m,34917,19.77,37.36,-18.12
+Ty Fm top,250-500 m,33923,10.72,36.87,-8.94
+Ty Fm top,0.5-1 km,59311,10.15,37.2,-7.23
+Ty Fm top,1-2 km,57562,14.94,31.9,-13.15
+Shetland Gp top,0-250 m,34917,3.79,9.89,1.38
+Shetland Gp top,250-500 m,33773,4.18,10.83,3.01
+Shetland Gp top,0.5-1 km,58545,5.54,19.38,4.86
+Shetland Gp top,1-2 km,56472,6.67,18.56,5.87
+Shetland Gp top,over 2 km,1418,19.06,33.46,19.06
+Base Cretaceous,0-250 m,34917,4.8,12.27,2.97
+Base Cretaceous,250-500 m,33923,4.91,12.39,3.41
+Base Cretaceous,0.5-1 km,59654,5.2,12.54,3.52
+Base Cretaceous,1-2 km,62891,5.81,24.8,2.03
+Base Cretaceous,over 2 km,17664,14.01,51.62,13.28
+Hod Fm top,0-250 m,34917,3.97,9.88,-0.58
+Hod Fm top,250-500 m,33923,3.64,9.33,-0.97
+Hod Fm top,0.5-1 km,59207,3.6,11.63,-0.87
+Hod Fm top,1-2 km,63003,4.62,11.34,-2.51
+Hod Fm top,over 2 km,14746,5.22,45.09,0.96
