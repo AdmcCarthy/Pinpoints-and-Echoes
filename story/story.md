@@ -9,7 +9,7 @@ register: section
 palette: tide
 surface: nordic-cool
 units: sm3
-horizon: { data: header, height: 150 }
+horizon: { data: header, height: 80, label: false, palette: fjord }
 kpis:
   - { metric: n_wellbores, label: petroleum wellbores in the Norwegian North Sea }
   - { metric: hole_cm, label: "cm across at reservoir depth", filter: round:0 }
