@@ -215,8 +215,6 @@ title: What an interpreter adds to the echo
 :::
 
 ::: step {beat=echo}
-### Thinner than a quarter of a wavelength, and it disappears
-
 Around the reservoir the data's dominant frequency is about {{ dom_hz | round:0 }} Hz and the sound travels at
 {{ v_res | int }} m/s, so a quarter of a wavelength is {{ quarter_m | round:0 }} m. A synthetic bed thinned
 from eighty metres to nothing shows what that means: below about {{ tuning_m | round:0 }} m the echoes from its top and
@@ -390,8 +388,6 @@ title: Two defensible surfaces, and the gap between them
 :::
 
 ::: step {beat=interpretation}
-### Wells narrow the disagreement without ending it
-
 The textbook picture is that interpretations agree near the wells and part away from them. The Volve versions
 show a weaker form of it. Within a quarter of a kilometre of a well pick the median difference is already
 {{ near_lo | round:0 }} to {{ near_hi | round:0 }} ms, depending on the surface. Beyond two kilometres, where
@@ -452,8 +448,6 @@ title: Close in, one time opens into a band of depth
 ## The number
 
 ::: step {beat=volumes}
-### Fifteen metres of contact, more than twice the area
-
 The depth of the oil-water contact decides how much of a structure holds oil. On the smoothed Hugin top
 surface the area inside the closing contour does not grow smoothly with depth. Where the contact drops below
 a saddle that joins two highs, the trap takes in the second high at once, and the curve steps.
@@ -491,7 +485,7 @@ subtitle: The same curve with the plan's three contact cases
 :::
 
 ::: step {beat=volumes}
-### The number people quote
+### Carried through to oil, the contact becomes a curve
 
 Carry the contact through to recoverable oil and the width of the answer becomes visible. With the closure
 curve above, the plan's contact distribution and illustrative ranges for pay, porosity, saturation, shrinkage

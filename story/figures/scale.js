@@ -23,7 +23,7 @@ export default function scale(el, datasets, opts = {}) {
     last = [width, state];
     const mag = state.mag ?? 1;
     const aspect = (y1 - y0) / (x1 - x0);
-    const H = Math.round(Math.min(width * aspect, Math.max(170, window.innerHeight * (width < 600 ? 0.24 : 0.58))));
+    const H = Math.round(Math.min(width * aspect, Math.max(160, window.innerHeight * (width < 600 ? 0.22 : 0.58))));
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr; canvas.height = H * dpr;
     canvas.style.width = `${width}px`; canvas.style.height = `${H}px`;
@@ -45,10 +45,14 @@ export default function scale(el, datasets, opts = {}) {
       g.globalAlpha = 1;
     }
     const km = (x1 - x0) * kmPerUnit;
+    const n = wells.length.toLocaleString("en-GB"), frac = Number((1 / diamPx).toPrecision(2)).toLocaleString("en-GB"), kmS = Math.round(km).toLocaleString("en-GB");
+    const narrow = width < 600;
     note.text(
       mag === 1
-        ? `${wells.length.toLocaleString("en-GB")} wellbores at true size: each dot would be one ${Number((1 / diamPx).toPrecision(2)).toLocaleString("en-GB")}th of a pixel wide, in an area about ${Math.round(km).toLocaleString("en-GB")} km across.`
-        : `Each wellbore enlarged ${Math.round(mag).toLocaleString("en-GB")} times, to ${diamPx.toFixed(1)} px. Wellhead positions only.`
+        ? (narrow ? `${n} wellbores, each one ${frac}th of a pixel wide; about ${kmS} km across.`
+          : `${n} wellbores at true size: each dot would be one ${frac}th of a pixel wide, in an area about ${kmS} km across.`)
+        : (narrow ? `Each wellbore enlarged ${Math.round(mag).toLocaleString("en-GB")} times, to ${diamPx.toFixed(1)} px.`
+          : `Each wellbore enlarged ${Math.round(mag).toLocaleString("en-GB")} times, to ${diamPx.toFixed(1)} px. Wellhead positions only.`)
     );
   }
   onSchemeChange(() => last && draw(...last));
