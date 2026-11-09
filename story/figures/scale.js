@@ -23,7 +23,7 @@ export default function scale(el, datasets, opts = {}) {
     last = [width, state];
     const mag = state.mag ?? 1;
     const aspect = (y1 - y0) / (x1 - x0);
-    const H = Math.round(Math.min(width * aspect, Math.max(240, window.innerHeight * (width < 600 ? 0.34 : 0.58))));
+    const H = Math.round(Math.min(width * aspect, Math.max(180, window.innerHeight * (width < 600 ? 0.26 : 0.58))));
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr; canvas.height = H * dpr;
     canvas.style.width = `${width}px`; canvas.style.height = `${H}px`;
@@ -47,7 +47,7 @@ export default function scale(el, datasets, opts = {}) {
     const km = (x1 - x0) * kmPerUnit;
     note.text(
       mag === 1
-        ? `${wells.length.toLocaleString("en-GB")} wellbores drawn at true size: each dot would be ${(diamPx).toExponential(1)} of a pixel wide. The area shown is about ${Math.round(km).toLocaleString("en-GB")} km across.`
+        ? `${wells.length.toLocaleString("en-GB")} wellbores drawn at true size: each dot would be one ${Number((1 / diamPx).toPrecision(2)).toLocaleString("en-GB")}th of a pixel wide. The area shown is about ${Math.round(km).toLocaleString("en-GB")} km across.`
         : `Each wellbore enlarged ${Math.round(mag).toLocaleString("en-GB")} times, to ${diamPx.toFixed(1)} px. Wellhead positions only.`
     );
   }

@@ -32,7 +32,7 @@ export default function section(el, datasets) {
   function draw(width, state = {}) {
     last = [width, state];
     const narrow = width < 600;
-    const Hpx = Math.round(Math.min(Math.max(width * 0.6, 260), window.innerHeight * (narrow ? 0.34 : 0.6)));
+    const Hpx = Math.round(Math.min(Math.max(width * 0.6, 260), window.innerHeight * (narrow ? 0.28 : 0.6)));
     const m = { l: 44, r: 8, t: 8, b: 26 };
     const t0 = S.t0_ms, t1 = S.t0_ms + (ns - 1) * S.dt_ms;
     const wellX = S.well_dist_m;

@@ -19,6 +19,8 @@ SubScout from `story/`.
 ..\ep_geoscience_analytics\.venv\Scripts\python.exe -I scripts\make_beats.py --ep ..\ep_geoscience_analytics --volve C:\appl\Volve --surfaces ..\volve-surfaces
 # page (SubScout is a sibling checkout; GitHub Pages builds the same way from SubScout main)
 cd ..\SubScout; uv run subscout build ..\Pinpoints-and-Echoes\story --out ..\Pinpoints-and-Echoes\_site
+# readability gate: every step legible on three phone and two desktop sizes (needs `uv run playwright install chromium` once)
+uv run python scripts\readability.py ..\Pinpoints-and-Echoes\_site
 ```
 
 ## The thesis

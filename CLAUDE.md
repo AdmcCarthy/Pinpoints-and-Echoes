@@ -17,4 +17,7 @@ worked case, not the subject. Owner: Adam McCarthy, petroleum geoscience domain 
 - No numbers in prose until computed from data. every figure in `story/story.md` is a `{{ metric }}`.
 - Dataset terms and attribution lines come from Idiom `DATASETS.md`; they are recorded in `DATA-LICENCE.md`. Raw Volve data is never committed.
 - Before showing prose: `python ../Idiom/scripts/check_banned.py story/story.md` and `check_voice.py --mode published`.
+- Before publishing: SubScout's readability gate, `uv run --project ../SubScout python ../SubScout/scripts/readability.py _site`,
+  must pass on all five viewports. On a 360 px phone a step card gets about 300 px under the pinned figure, so keep
+  cards short and custom figures at about 28 % of the viewport height when narrow.
 - British English, metric first (Sm³) with boe alongside.

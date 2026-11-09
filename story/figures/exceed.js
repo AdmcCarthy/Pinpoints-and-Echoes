@@ -8,7 +8,7 @@ export default function exceed(el, datasets, opts = {}) {
   function draw(width, state = {}) {
     last = [width, state];
     const narrow = width < 600;
-    const H = Math.round(Math.min(Math.max(width * 0.55, 240), window.innerHeight * (narrow ? 0.34 : 0.5)));
+    const H = Math.round(Math.min(Math.max(width * 0.55, 240), window.innerHeight * (narrow ? 0.28 : 0.5)));
     const m = { l: 44, r: 16, t: 22, b: 34 };
     const boe = opts.units && opts.units() === "boe";
     const f = boe ? 6.29 : 1, unit = boe ? "Mn boe" : "Mn Sm³";

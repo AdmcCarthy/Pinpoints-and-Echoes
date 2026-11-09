@@ -17,7 +17,7 @@ export default function tie(el, datasets) {
   function draw(width, state = {}) {
     last = [width, state];
     const narrow = width < 600;
-    const H = Math.round(Math.min(Math.max(width * 0.75, 320), window.innerHeight * (narrow ? 0.34 : 0.62)));
+    const H = Math.round(Math.min(Math.max(width * 0.75, 320), window.innerHeight * (narrow ? 0.28 : 0.62)));
     const m = { l: 44, r: 8, t: 26, b: 8 };
     const tdom = [2300, 3100];
     const y = d3.scaleLinear().domain(tdom).range([m.t, H - m.b]);

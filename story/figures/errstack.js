@@ -16,7 +16,7 @@ export default function errstack(el, datasets) {
     const upto = state.upto ?? all.length;
     const narrow = width < 520;
     const m = { l: narrow ? 8 : 190, r: 52, t: 8, b: 30 };
-    const rowH = narrow ? 46 : 36, H = m.t + m.b + all.length * rowH;
+    const rowH = narrow ? 40 : 36, H = m.t + m.b + all.length * rowH;
     svg.attr("viewBox", `0 0 ${width} ${H}`).attr("width", width).attr("height", H);
     const x = d3.scaleLinear().domain([0, d3.max(all, (r) => r.worst) * 1.05]).range([m.l, width - m.r]);
     svg.selectAll("*").remove();

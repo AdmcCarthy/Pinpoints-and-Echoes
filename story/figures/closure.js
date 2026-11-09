@@ -10,7 +10,7 @@ export default function closure(el, datasets) {
   function draw(width, state = {}) {
     last = [width, state];
     const narrow = width < 600;
-    const H = Math.round(Math.min(Math.max(width * 0.65, 260), window.innerHeight * (narrow ? 0.34 : 0.58)));
+    const H = Math.round(Math.min(Math.max(width * 0.65, 260), window.innerHeight * (narrow ? 0.28 : 0.58)));
     const m = { l: 48, r: narrow ? 12 : 24, t: 14, b: 32 };
     svg.attr("viewBox", `0 0 ${width} ${H}`).attr("width", width).attr("height", H).selectAll("*").remove();
     const zmax = Math.max(d3.max(C, (p) => p.z), state.cases ? 3270 : 0);

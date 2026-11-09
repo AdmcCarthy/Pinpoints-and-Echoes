@@ -11,7 +11,7 @@ export default function fan(el, datasets) {
     last = [width, state];
     const at = state.at ?? 2650;
     const narrow = width < 600;
-    const H = Math.round(Math.min(Math.max(width * 0.7, 280), window.innerHeight * (narrow ? 0.34 : 0.6)));
+    const H = Math.round(Math.min(Math.max(width * (narrow ? 0.6 : 0.7), narrow ? 200 : 280), window.innerHeight * (narrow ? 0.28 : 0.6)));
     const m = { l: 48, r: narrow ? 10 : 170, t: 14, b: 30 };
     svg.attr("viewBox", `0 0 ${width} ${H}`).attr("width", width).attr("height", H).selectAll("*").remove();
     const tdom = state.zoom ? [at - 150, at + 150] : [0, d3.max(R, (r) => r.t)];

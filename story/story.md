@@ -221,8 +221,7 @@ Around the reservoir the data's dominant frequency is about {{ dom_hz | round:0 
 {{ v_res | int }} m/s, so a quarter of a wavelength is {{ quarter_m | round:0 }} m. A synthetic bed thinned
 from eighty metres to nothing shows what that means: below about {{ tuning_m | round:0 }} m the echoes from its top and
 base merge, and the thickness the seismic reports stops following the truth. The layers the log resolved in
-the previous panel are far below this limit. The same physics maps the sea floor by sonar, and by 2025 only
-{{ 27.3 | cite:gebco }} per cent of the world's ocean floor had been mapped to modern standards.
+the previous panel are far below this limit.
 
 ```chart
 id: wedge
@@ -238,15 +237,24 @@ notes: Synthetic, and labelled so. A zero-phase Ricker wavelet at the centroid f
 ```
 :::
 
+::: step {beat=echo}
+The limit is set by wavelength, in water as in rock. The same physics maps the sea floor by sonar, and by 2025
+only {{ 27.3 | cite:gebco }} per cent of the world's ocean floor had been mapped to modern standards. The rock
+beneath it is mapped from kilometres further away, through the sea floor, with a longer wave.
+
+```chart
+use: wedge
+title: The same limit applies to every echo, including the sea floor's
+```
+:::
+
 ::: step {beat=tie}
 ### Where the pinpoint meets the echo
 
 The two kinds of evidence meet in the well tie. The log's sonic and density give a reflectivity series over {{ ai_cover | pct }} of the window; the
 data's wavelet turns it into a synthetic trace; the check-shot table places it in time. Beside it is the real
 trace at the well. Without adjustment the two correlate at {{ tie_zero | round:2 }}. A single bulk shift of
-{{ tie_shift | int }} ms raises that to {{ tie_corr | round:2 }}. A working tie would go further: a wavelet
-extracted from the data rather than assumed, and stretch applied to the synthetic. Each of those steps is a
-judgement, and this is the step where the judgements begin.
+{{ tie_shift | int }} ms raises that to {{ tie_corr | round:2 }}.
 
 ```chart
 id: tie
@@ -266,7 +274,9 @@ notes: Reflectivity from sonic and density where both exist (a share stated in t
 ::: step {beat=tie}
 After the shift the main reflectors line up and the detail between them does not. The log is sampled every
 {{ log_sample_cm | int }} cm; the echo averages tens of metres. Two instruments measuring the same rock agree on the outline and
-disagree on the detail, which is the whole relationship between a well and a seismic survey in one panel.
+disagree on the detail, which is the whole relationship between a well and a seismic survey in one panel. A
+working tie would go further: a wavelet extracted from the data rather than assumed, and stretch applied to the
+synthetic. Each of those steps is a judgement, and this is where the judgements begin.
 
 ```chart
 use: tie
@@ -407,9 +417,7 @@ exception: { rule: one hue per entity, reason: four surfaces take the categorica
 Converting time to depth needs a velocity, and the velocity comes from check shots in a few wells. Volve has
 {{ fan_n | int }} check-shot tables from {{ fan_wells | int }} wellbore folders. Read every one at
 {{ fan_twt_s | round:2 }} seconds of two-way time and the depth comes back between {{ fan_min | round:0 }} and
-{{ fan_max | round:0 }} m below sea level, a spread of {{ fan_range | round:0 }} m. Some of that is real,
-because the wells are kilometres apart and the rock between them changes. Some of it is measurement. Between
-the wells there is no way to say which table applies, which is the point.
+{{ fan_max | round:0 }} m below sea level, a spread of {{ fan_range | round:0 }} m.
 
 ```chart
 id: fan
@@ -427,8 +435,10 @@ notes: Tables as delivered, including one whose depth reference was found to be 
 :::
 
 ::: step {beat=depth}
-Close in, the curves fan out. A horizon mapped in time can be placed in depth anywhere inside that band,
-and the trap's size changes with it.
+Close in, the curves fan out. Some of the spread is real, because the wells are kilometres apart and the rock
+between them changes. Some of it is measurement. A horizon mapped in time can be placed in depth anywhere
+inside that band, and the trap's size changes with it. Between the wells there is no way to say which table
+applies, which is the point.
 
 ```chart
 use: fan
@@ -442,22 +452,18 @@ title: Close in, one time opens into a band of depth
 ::: step {beat=volumes}
 ### Fifteen metres of contact, more than twice the area
 
-The depth of the oil-water contact decides how much of a structure holds oil. Volve's 2005 plan for
-development gave that depth as a distribution: P90 {{ owc_p90 | int }} m, P50 {{ owc_p50 | int }} m,
-P10 {{ owc_p10 | int }} m below sea level, with P90 the shallow, low case. On the smoothed Hugin top surface
-the area inside the closing contour is {{ area_p90 | round:1 }} km² at the P90 contact and
-{{ area_p50 | round:1 }} km² at the P50, {{ area_ratio | round:1 }} times as much for {{ owc_step | int }} m
-more depth, because the P50 contact lies just below a saddle that joins two highs. The P10 contact lies
-deeper than the mapped surface can hold.
+The depth of the oil-water contact decides how much of a structure holds oil. On the smoothed Hugin top
+surface the area inside the closing contour does not grow smoothly with depth. Where the contact drops below
+a saddle that joins two highs, the trap takes in the second high at once, and the curve steps.
 
 ```chart
 id: closure
 type: custom
 module: figures/closure.js
 data: [closure, contact]
-state: { cases: true }
-title: A few metres of contact depth can double the trap
-subtitle: Area inside the closing contour of the Volve high on the Hugin top, against depth, with the plan's contact cases
+state: { cases: false }
+title: Area inside the closing contour grows in steps, not smoothly
+subtitle: Area inside the closing contour of the Volve high on the Hugin top, against depth
 source: volve
 confidence: interpreted
 unit: m below MSL, km²
@@ -466,15 +472,28 @@ notes: The curve is the merge-tree closure analysis of volve-surfaces on a smoot
 :::
 
 ::: step {beat=volumes}
+Volve's 2005 plan for development gave the contact as a distribution: P90 {{ owc_p90 | int }} m, P50
+{{ owc_p50 | int }} m, P10 {{ owc_p10 | int }} m below sea level, with P90 the shallow, low case. The area is
+{{ area_p90 | round:1 }} km² at the P90 contact and {{ area_p50 | round:1 }} km² at the P50,
+{{ area_ratio | round:1 }} times as much for {{ owc_step | int }} m more depth, because the P50 contact lies
+just below the saddle. The P10 contact lies deeper than the mapped surface can hold.
+
+```chart
+use: closure
+cases: true
+title: A few metres of contact depth can double the trap
+subtitle: The same curve with the plan's three contact cases
+```
+:::
+
+::: step {beat=volumes}
 ### The number people quote
 
 Carry the contact through to recoverable oil and the width of the answer becomes visible. With the closure
 curve above, the plan's contact distribution and illustrative ranges for pay, porosity, saturation, shrinkage
-and recovery ({{ sim_n | int }} draws, parameters in the ledger; {{ capped | pct }} of draws fall deeper than the mapped surface and take its deepest area), the simulation gives a P90 of
-{{ vol_p90 | round:0 }}, a P50 of {{ vol_p50 | round:0 }} and a P10 of {{ vol_p10 | round:0 }} million Sm³:
-the high case is {{ vol_ratio | round:1 }} times the low. The exercise is illustrative and is not an estimate
-of Volve. Its shape is the shape every such number has. Weather forecasters publish the same thing when they
-run {{ 51 | cite:ecmwf }} versions of tomorrow and show how far they spread.
+and recovery ({{ sim_n | int }} draws, parameters in the ledger), the simulation gives a P90 of
+{{ vol_p90 | round:0 }}, a P50 of {{ vol_p50 | round:0 }} and a P10 of {{ vol_p10 | round:0 }} million Sm³.
+The high case is {{ vol_ratio | round:1 }} times the low.
 
 ```chart
 id: exceed
@@ -487,6 +506,18 @@ source: volve
 confidence: interpreted
 unit: Mn Sm³ (toggle for boe)
 notes: A simulation, labelled as one. Area from the closure curve at a contact drawn from the plan's distribution (draws deeper than the mapped surface take its deepest area, a share stated in the ledger); average net pay 15 to 50 m, porosity 0.16 to 0.24, water saturation 0.25 to 0.50, formation volume factor 1.15 to 1.35, recovery factor 0.30 to 0.50, all triangular and chosen for the story. Seed 7.
+```
+:::
+
+::: step {beat=volumes}
+The exercise is illustrative and is not an estimate of Volve: every range was chosen for the story, and
+{{ capped | pct }} of the draws fall deeper than the mapped surface and take its deepest area. Its shape is
+the shape every such number has. Weather forecasters publish the same thing when they run
+{{ 51 | cite:ecmwf }} versions of tomorrow and show how far they spread.
+
+```chart
+use: exceed
+title: A P50 is one point on the curve, not a prediction
 ```
 :::
 
@@ -526,9 +557,6 @@ notes: Sodir's annual resource accounts as held in the FactPages. Oil equivalent
 Volve is not unusual. For the {{ rev_n | int }} Norwegian fields with a development plan approved since 2003
 and at least five years of Sodir snapshots, the latest estimate divided by the first is {{ rev_median | round:2 }}
 at the median, but {{ rev_p10 | round:2 }} at the 10th percentile and {{ rev_p90 | round:2 }} at the 90th.
-{{ rev_down | pct }} fell by more than five per cent and {{ rev_up | pct }} grew by more than that;
-{{ rev_halved | pct }} at least halved and {{ rev_doubled | pct }} at least doubled. The median estimate was
-about right. Almost no single field was.
 
 ```chart
 id: revisions
@@ -538,14 +566,26 @@ row: decade
 value: ratio_pct
 label: field_label
 scale: linear
-highlight: [Volve]
 unit: "% of first estimate"
 value_label: one dot per field
 title: The median field held its estimate; most individual fields did not
-subtitle: Latest Sodir recoverable estimate divided by the first, by decade of plan approval; Volve highlighted
+subtitle: Latest Sodir recoverable estimate divided by the first, by decade of plan approval
 source: sodir
 confidence: derived
-notes: Fields whose first Sodir snapshot falls within a year of plan approval, so the first number is close to the sanction estimate. A value of 100 means no change; Volve is the dark dot.
+notes: Fields whose first Sodir snapshot falls within a year of plan approval, so the first number is close to the sanction estimate. A value of 100 means no change. When highlighted, Volve is the dark dot.
+```
+:::
+
+::: step {beat=test}
+{{ rev_down | pct }} fell by more than five per cent and {{ rev_up | pct }} grew by more than that;
+{{ rev_halved | pct }} at least halved and {{ rev_doubled | pct }} at least doubled. The median estimate was
+about right. Almost no single field was, and Volve, highlighted, is one dot among them.
+
+```chart
+use: revisions
+highlight: [Volve]
+title: Volve, highlighted, is one field among many that moved
+subtitle: The same ratios with Volve picked out
 ```
 :::
 
@@ -559,13 +599,6 @@ the trace, Sodir's estimate. Derived means calculated from observed data by a st
 between wells, the tuning thickness, the fan. Interpreted means dependent on a model or a judgement, and given
 with its range: the horizons, the closure area, the simulated volume.
 
-Other trades infer between boreholes and live with the consequences. A review of {{ 84 | cite:hoek }} tunnels
-found contract costs rising as the length of exploration drilling fell relative to the tunnel, and hydropower
-projects that had spent on average under {{ 1 | cite:hoek }} per cent of their cost on investigation before
-design overran by {{ 27 | cite:hoek }} per cent. The subsurface case is the same case with deeper holes. The
-questions to ask of any claim about it are the same three: which word applies, what it was compared with, and
-how wide the range is.
-
 ```chart
 id: shelf_again
 type: custom
@@ -578,6 +611,33 @@ source: sodir
 confidence: derived
 unit: km (area), cm (hole)
 notes: The opening figure again. Wellhead positions, convex hull of the wellheads, every wellbore counted, Volve reservoir-depth hole diameter.
+```
+:::
+
+::: step {beat=therefore}
+Other trades infer between boreholes and live with the consequences. A review of {{ 84 | cite:hoek }} tunnels
+found contract costs rising as the length of exploration drilling fell relative to the tunnel, and hydropower
+projects that had spent on average under {{ 1 | cite:hoek }} per cent of their cost on investigation before
+design overran by {{ 27 | cite:hoek }} per cent. The subsurface case is the same case with deeper holes.
+
+```chart
+use: shelf_again
+mag: 12000
+title: Enlarged again, the holes and the ground between them
+subtitle: The same wellheads, each enlarged by the factor stated below
+```
+:::
+
+::: step {beat=therefore}
+The questions to ask of any claim about the subsurface are the same three: which word applies, what it was
+compared with, and how wide the range is. The wells remain the only points where the rock has been touched.
+Everything between them is echo and inference.
+
+```chart
+use: shelf_again
+mag: 12000
+title: Pinpoints and echoes
+subtitle: The same wellheads, each enlarged by the factor stated below
 ```
 :::
 

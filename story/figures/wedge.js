@@ -24,7 +24,7 @@ export default function wedge(el, datasets) {
     const dark = document.documentElement.dataset.colourScheme === "dark" || ((getComputedStyle(document.documentElement).getPropertyValue("color-scheme") || "").includes("dark"));
     paint(dark);
     const narrow = width < 600;
-    const H = Math.round(Math.min(Math.max(width * 0.5, 240), window.innerHeight * (narrow ? 0.34 : 0.5)));
+    const H = Math.round(Math.min(Math.max(width * 0.5, 240), window.innerHeight * (narrow ? 0.28 : 0.5)));
     const m = { l: 40, r: 8, t: 22, b: 30 }, split = narrow ? width : Math.round(width * 0.58);
     const v = W.v_m_s;
     const tdom = [20, 20 + 160];
@@ -48,7 +48,7 @@ export default function wedge(el, datasets) {
     svg.append("g").attr("transform", `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(3).tickFormat((d) => `${d}`))
       .call((gg) => gg.select(".domain").remove()).call((gg) => gg.selectAll("text").attr("fill", muted).attr("font-size", 10));
     svg.append("text").attr("x", 2).attr("y", 10).attr("font-size", 10).attr("fill", muted).text("ms");
-    svg.append("text").attr("x", x(0)).attr("y", m.t - 8).attr("font-size", 11).attr("font-weight", 600).attr("fill", ink).text(`Seismic response, synthetic (${W.f_hz} Hz wavelet, ${v.toLocaleString("en-GB")} m/s)`);
+    svg.append("text").attr("x", x(0)).attr("y", m.t - 8).attr("font-size", 11).attr("font-weight", 600).attr("fill", ink).text(narrow ? `Synthetic, ${W.f_hz} Hz wavelet` : `Seismic response, synthetic (${W.f_hz} Hz wavelet, ${v.toLocaleString("en-GB")} m/s)`);
     // tuning marker
     svg.append("line").attr("x1", x(W.tuning_m)).attr("x2", x(W.tuning_m)).attr("y1", y(tdom[0])).attr("y2", y(tdom[1])).attr("stroke", ink).attr("stroke-width", 1).attr("opacity", 0.6);
     svg.append("text").attr("x", x(W.tuning_m) + 4).attr("y", y(tdom[1]) - 6).attr("font-size", 10.5).attr("fill", ink).attr("paint-order", "stroke").attr("stroke", dark ? "#1b2430" : "#fff").attr("stroke-width", 3).text(`tuning ${W.tuning_m} m`);

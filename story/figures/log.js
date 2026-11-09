@@ -19,7 +19,7 @@ export default function log(el, datasets, opts = {}) {
     last = [width, state];
     const zoom = !!state.zoom;
     const narrow = width < 600;
-    const H = Math.round(Math.min(Math.max(width * 0.7, 300), window.innerHeight * (narrow ? 0.34 : 0.62)));
+    const H = Math.round(Math.min(Math.max(width * 0.7, 300), window.innerHeight * (narrow ? 0.28 : 0.62)));
     const m = { l: 46, r: 8, t: 30, b: 8 };
     const tracks = narrow ? TRACKS.slice(0, 3) : TRACKS;
     svg.attr("viewBox", `0 0 ${width} ${H}`).attr("width", width).attr("height", H).selectAll("*").remove();
