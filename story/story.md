@@ -377,7 +377,9 @@ notes: Pick depths are Observed and their times Derived through the check-shot t
 The base survey gives one surface and the reprocessed survey another. They agree on the broad shape and differ
 in the detail. Along this line they differ by a median {{ gap_med_ms | round:0 }} ms and by up to
 {{ gap_max_ms | round:0 }} ms, which is up to about {{ gap_max_m | round:0 }} m of depth at the Volve average
-velocity. Neither is wrong. Neither passes through the picks either: on average they miss them by
+velocity.
+
+Neither is wrong. Neither passes through the picks either: on average they miss them by
 {{ miss_base | round:0 }} and {{ miss_repro | round:0 }} ms.
 
 ```chart
@@ -473,7 +475,9 @@ notes: The curve is the merge-tree closure analysis of volve-surfaces on a smoot
 
 ::: step {beat=volumes}
 Volve's 2005 plan for development gave the contact as a distribution: P90 {{ owc_p90 | int }} m, P50
-{{ owc_p50 | int }} m, P10 {{ owc_p10 | int }} m below sea level, with P90 the shallow, low case. The area is
+{{ owc_p50 | int }} m, P10 {{ owc_p10 | int }} m below sea level, with P90 the shallow, low case.
+
+The area is
 {{ area_p90 | round:1 }} km² at the P90 contact and {{ area_p50 | round:1 }} km² at the P50,
 {{ area_ratio | round:1 }} times as much for {{ owc_step | int }} m more depth, because the P50 contact lies
 just below the saddle. The P10 contact lies deeper than the mapped surface can hold.
@@ -618,7 +622,9 @@ notes: The opening figure again. Wellhead positions, convex hull of the wellhead
 Other trades infer between boreholes and live with the consequences. A review of {{ 84 | cite:hoek }} tunnels
 found contract costs rising as the length of exploration drilling fell relative to the tunnel, and hydropower
 projects that had spent on average under {{ 1 | cite:hoek }} per cent of their cost on investigation before
-design overran by {{ 27 | cite:hoek }} per cent. The subsurface case is the same case with deeper holes.
+design overran by {{ 27 | cite:hoek }} per cent.
+
+The subsurface case is the same case with deeper holes.
 
 ```chart
 use: shelf_again
