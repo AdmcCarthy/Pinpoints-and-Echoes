@@ -9,7 +9,7 @@ register: section
 palette: tide
 surface: nordic-cool
 units: sm3
-horizon: true
+horizon: { data: header, highlight: Hugin Fm top, height: 150 }
 kpis:
   - { metric: n_wellbores, label: petroleum wellbores in the Norwegian North Sea }
   - { metric: hole_cm, label: "cm across at reservoir depth", filter: round:0 }
@@ -48,6 +48,7 @@ data:
   picks: data/picks.csv
   log: data/log.csv
   section: data/section.json
+  header: data/header.json
   horizons: data/horizons.csv
   wedge: data/wedge.json
   tie: data/tie.csv

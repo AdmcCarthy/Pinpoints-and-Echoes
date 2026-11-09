@@ -17,6 +17,7 @@ SubScout from `story/`.
 ..\ep_geoscience_analytics\.venv\Scripts\python.exe -I scripts\make_spread.py --ep ..\ep_geoscience_analytics --zip C:\appl\Volve\Volve_Geophysical_Interpretations.zip
 ..\seismic_lib\.venv\Scripts\python.exe -I scripts\make_seismic.py --segy "C:\appl\Volve\Seismic\ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy" --x 436123.2 --y 6479126.0 --well "15/9-F-11 T2"
 ..\ep_geoscience_analytics\.venv\Scripts\python.exe -I scripts\make_beats.py --ep ..\ep_geoscience_analytics --volve C:\appl\Volve --surfaces ..\volve-surfaces
+uv run --project ..\seismic_art python scripts\make_header.py --segy "C:\appl\Volve\Seismic\ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy" --horizons C:\appl\Volve_work\horizons_twt
 # page (SubScout is a sibling checkout; GitHub Pages builds the same way from SubScout main)
 cd ..\SubScout; uv run subscout build ..\Pinpoints-and-Echoes\story --out ..\Pinpoints-and-Echoes\_site
 # readability gate: every step legible on three phone and two desktop sizes (needs `uv run playwright install chromium` once)
